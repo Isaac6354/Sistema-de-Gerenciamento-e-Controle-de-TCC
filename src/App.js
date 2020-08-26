@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Form} from '@unform/web';
 import './App.css';
+import Input from './components/FormUser/input';
 
 function App() {
+  function handleSubmit(data) {
+    console.log(data)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello World</h1>
+      <Form onSubmit={handleSubmit}>
+        <Input name="nome" />
+        <Input name="cpfCnpj" />
+        <Input name="matricula" />
+        <Input name="curso" />
+        <Input type='password' name="password" />
+        
+        <button type='submit'>Cancelar</button>
+        <button type='submit'>Cadastrar</button>
+      </Form>
     </div>
   );
 }
