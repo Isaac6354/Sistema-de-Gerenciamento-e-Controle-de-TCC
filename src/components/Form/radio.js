@@ -3,7 +3,7 @@ import { useField } from "@unform/core";
 
 export default function Radio({ name, options }) {
   const inputRefs = useRef([]);
-  const { fieldName, registerField, defaultValue } = useField(name);
+  const { fieldName, registerField, defaultValue, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -39,6 +39,7 @@ export default function Radio({ name, options }) {
           <span>{option.label}</span>
         </label>
       ))}
+      {error && <span style={{color: '#f00'}}>{error}</span>}
     </div>
   );
 }
